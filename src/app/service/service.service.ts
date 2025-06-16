@@ -23,6 +23,11 @@ export class ServiceService {
     return this.http.post<Product>(this.apiUrl,product);
   };
 
+  // get single product using id
+  getSingleProductById(id:number):Observable<Product>{
+    return this.http.get<Product>(`${this.apiUrl}/${id}`);
+  };
+
   // delete product
   deleteProduct(id:number):Observable<void>{
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
