@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../../service/service.service';
 import { Product } from '../../model/Product.model';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-product',
-  imports: [],
+  imports: [CommonModule,FormsModule],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
