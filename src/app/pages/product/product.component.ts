@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './product.component.css'
 })
 export class ProductComponent implements OnInit {
+https: any;
 
   constructor(private productService:ServiceService) {}
 
@@ -23,6 +24,7 @@ export class ProductComponent implements OnInit {
   getAllProducts(){
     this.productService.getAllProducts().subscribe((data) => {
       this.products = data;
+      console.log(this.products);
     })
   };
   
