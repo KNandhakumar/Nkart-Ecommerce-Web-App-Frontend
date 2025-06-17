@@ -44,5 +44,12 @@ https: any;
       this.newProduct = {name: '',description: '',price: 0,imageUrl: ''}; // clear form
     })
   }
+
+  // delete product
+  deleteProduct(id:number){
+this.productService.deleteProduct(id).subscribe(() => {
+  this.products = this.products.filter(product => product.id !== id);
+  });
+}
   
 }
