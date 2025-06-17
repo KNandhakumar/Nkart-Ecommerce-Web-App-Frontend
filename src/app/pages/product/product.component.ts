@@ -17,6 +17,15 @@ https: any;
 
   // get all products to show
   products:Product[] = [];
+
+  // add product
+  newProduct:Product = {
+    name: '',
+    description: '',
+    price: 0,
+    imageUrl: ''
+  };
+
   ngOnInit(): void {
     this.getAllProducts();
   };
@@ -27,5 +36,13 @@ https: any;
       console.log(this.products);
     })
   };
+
+  // add product
+  addProduct(){
+    this.productService.addProduct(this.newProduct).subscribe(() => {
+      this.getAllProducts(); // refresh list
+      this.newProduct = {name: '',description: '',price: 0,imageUrl: ''}; // clear form
+    })
+  }
   
 }

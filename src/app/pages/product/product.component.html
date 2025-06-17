@@ -1,3 +1,25 @@
+<!-- Add products -->
+ <div class="max-w-2xl mx-auto bg-white p-6 rounded-xl shadow-md mb-10">
+    <h2 class="text-2xl font-bold text-emerald-700 mb-4 text-center">Add new Product</h2>
+
+    <form (ngSubmit)="addProduct()" class="space-y-4">
+        <input type="text" [(ngModel)]="newProduct.name" name="name" placeholder="Product Name"
+        class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none" required>
+
+        <textarea [(ngModel)]="newProduct.description" name="description" placeholder="Description"
+        class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none" required></textarea>
+
+        <input type="number" [(ngModel)]="newProduct.price" name="price" placeholder="Price"
+        class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none" required>
+
+        <input type="text" [(ngModel)]="newProduct.imageUrl" name="imageUrl" placeholder="ImageUrl"
+        class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none" required>
+
+        <button type="submit" class="bg-emerald-600 text-white px-4 py-2 rounded-lg cursor-pointer">Add Product</button>
+    </form>
+ </div>
+
+<!-- Show all products -->
 <div class="min-h-screen bg-gray-100 p-8">
     <h2 class="text-3xl font-bold text-center text-emerald-700 mb-6">All Products</h2>
 
