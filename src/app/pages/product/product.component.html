@@ -30,8 +30,50 @@
         <h3 class="text-xl font-semibold text-emerald-800">{{product.name}}</h3>
         <p class="text-gray-600 mb-2">{{product.description}}</p>
         <div class="text-emerald-700 font-bold text-lg">₹ {{product.price}}</div>
+
+        <!-- Edit product -->
+         <button (click)="editProduct(product)"
+          class="bg-sky-400 text-white px-3 py-1 rounded-lg cursor-pointer mr-2">Edit</button>
+          
         <!-- Delete product -->
-         <button (click)="deleteProduct(product.id!)" class="bg-red-500 mt-2 text-white px-3 py-1 rounded-lg cursor-pointer">Delete</button>
+         <button (click)="deleteProduct(product.id!)"
+         class="bg-red-500 mt-2 text-white px-3 py-1 rounded-lg cursor-pointer">Delete</button>
         </div>
+
+        <!-- Edit form -->
+         <div *ngIf="selectedProduct" class="fixed inset-20 flex items-center justify-center  bg-opacity-50 z-50">
+            <div class="bg-white p-6 rounded-xl shadow-md w-full max-w-lg relative">
+            <h2 class="text-2xl font-bold text-emerald-700 mb-4 text-center">Update Product</h2>
+
+            <form class="space-y-4">
+                <!-- Name -->
+                 <input type="text" [(ngModel)]="selectedProduct!.name" name="productName" placeholder="Name"
+                 class="w-full p-2 mb-4 border rounded-lg focus:outline-none">
+
+                 <!-- Description -->
+                  <textarea name="description" [(ngModel)]="selectedProduct!.description" placeholder="productDescription" 
+                  class="w-full p-2 mb-4 border rounded-lg focus:outline-none"></textarea>
+
+                  <!-- Price -->
+                 <input type="number" [(ngModel)]="selectedProduct!.price" name="productPrice" placeholder="Price"
+                 class="w-full p-2 mb-4 border rounded-lg focus:outline-none">
+
+                 <!-- Image url -->
+                 <input type="tel" [(ngModel)]="selectedProduct!.imageUrl" name="productImageurl" placeholder="Image Url"
+                 class="w-full p-2 mb-4 border rounded-lg focus:outline-none">
+
+                 <!-- button -->
+                 <!-- Cancel button -->
+                  <div class="flex justify-between mt-6">
+                    <button type="button" (click)="cancelEdit()" 
+                    class="bg-gray-300 px-4 py-2 rounded-lg cursor-pointer">Cancel</button>
+
+                    <!-- Update button -->
+                     <button type="submit" (click)="updateProduct()" 
+                     class="bg-emerald-600 text-white px-4 py-2 rounded-lg">Update</button>
+                  </div>
+            </form>
+            </div>
+         </div>
     </div>
 </div>
