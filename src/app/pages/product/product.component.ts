@@ -62,5 +62,14 @@ this.productService.deleteProduct(id).subscribe(() => {
   cancelEdit(){
     this.selectedProduct = null;
   }
+
+  // update product
+  updateProduct(){
+    if(!this.selectedProduct) return;
+    this.productService.updateProduct(this.selectedProduct.id!,this.selectedProduct).subscribe(() => {
+      this.getAllProducts(); // refresh list
+      this.selectedProduct = null;
+    })
+  }
   
 }
