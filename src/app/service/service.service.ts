@@ -1,3 +1,4 @@
+import { Product } from './../model/Product.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -27,6 +28,11 @@ export class ServiceService {
   getSingleProductById(id:number):Observable<Product>{
     return this.http.get<Product>(`${this.apiUrl}/${id}`);
   };
+
+  // update product
+  updateProduct(id:number,updatedProduct:Product):Observable<Product>{
+    return this.http.put<Product>(`${this.apiUrl}/${id}`,updatedProduct);
+  }
 
   // delete product
   deleteProduct(id:number):Observable<void>{
