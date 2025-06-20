@@ -51,5 +51,11 @@ this.productService.deleteProduct(id).subscribe(() => {
   this.products = this.products.filter(product => product.id !== id);
   });
 }
+
+  // edit product
+  selectedProduct:Product | null = null;
+  editProduct(product:any){
+    this.selectedProduct = { ...product }; // copy product
+  };
   
 }
