@@ -57,5 +57,10 @@ this.productService.deleteProduct(id).subscribe(() => {
   editProduct(product:any){
     this.selectedProduct = { ...product }; // copy product
   };
+
+  // cancel editiing product
+  cancelEdit(){
+    this.selectedProduct = null;
+  }
   
 }
