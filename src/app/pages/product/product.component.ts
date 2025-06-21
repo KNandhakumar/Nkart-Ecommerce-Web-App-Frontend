@@ -47,7 +47,7 @@ https: any;
 
   // get product by id
   viewedProduct:Product | null = null;
-  viewProduct(id:number){
+  viewProductById(id:number){
     this.productService.getSingleProductById(id).subscribe((data) => {
       this.viewedProduct = data;
     });
