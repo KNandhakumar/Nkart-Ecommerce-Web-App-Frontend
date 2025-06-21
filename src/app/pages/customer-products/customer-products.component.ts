@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../../service/service.service';
 import { Product } from '../../model/Product.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-customer-products',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './customer-products.component.html',
   styleUrl: './customer-products.component.css'
 })
