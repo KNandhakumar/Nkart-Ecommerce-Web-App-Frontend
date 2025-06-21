@@ -45,6 +45,19 @@ https: any;
     })
   }
 
+  // get product by id
+  viewedProduct:Product | null = null;
+  viewProduct(id:number){
+    this.productService.getSingleProductById(id).subscribe((data) => {
+      this.viewedProduct = data;
+    });
+  };
+
+  // close view product
+  closeViewProduct(){
+    this.viewedProduct = null;
+  }
+
   // delete product
   deleteProduct(id:number){
 this.productService.deleteProduct(id).subscribe(() => {
