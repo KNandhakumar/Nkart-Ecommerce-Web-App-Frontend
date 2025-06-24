@@ -4,7 +4,7 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyCj-ialXlICHn_aGgzP2FQIrH3_2HkxY-c",
   authDomain: "nkart-auth.firebaseapp.com",
   projectId: "nkart-auth",
