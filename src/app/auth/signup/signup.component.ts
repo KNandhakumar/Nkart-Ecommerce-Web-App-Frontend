@@ -1,11 +1,27 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Auth, createUserWithEmailAndPassword } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms'
 
 @Component({
   selector: 'app-signup',
-  imports: [],
+  imports: [CommonModule,FormsModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
 export class SignupComponent {
 
+  constructor(private auth:Auth, private router:Router){}
+  email = '';
+  password = '';
+
+  onSignup(){
+    createUserWithEmailAndPassword(this.auth,this.email,this.password)
+    .then(() => {
+      alert('Signup successful!');
+      this.router.navigate(['/shop'])
+      .catch(err => alert('error' + err.message));
+    });
+  };
 }

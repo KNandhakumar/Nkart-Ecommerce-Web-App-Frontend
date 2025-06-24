@@ -1,1 +1,14 @@
-<p>signup works!</p>
+<!-- Signup -->
+<div class="max-w-md mx-auto mt-10 p-6 bg-white rounded-xl shadow-md">
+    <h2 class="text-2xl font-bold mb-4 text-emerald-600 text-center">Register Your Account</h2>
+
+    <form class="space-y-4" (ngSubmit)="onSignup()">
+        <!-- email -->
+        <input type="email" [(ngModel)]="email" name="email" placeholder="Email" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none" required>
+        <!-- password -->
+        <input type="password" [(ngModel)]="password" name="password" placeholder="Password" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none" required>
+
+        <!-- button -->
+         <button type="submit" class="bg-emerald-600 text-white px-2 py-2 rounded-lg cursor-pointer hover:bg-emerald-700">Signup</button>
+    </form>
+</div>
