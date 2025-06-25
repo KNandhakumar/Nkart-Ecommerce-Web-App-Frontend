@@ -20,7 +20,7 @@ export class SignupComponent {
     createUserWithEmailAndPassword(this.auth,this.email,this.password)
     .then(() => {
       alert('Signup successful!');
-      this.router.navigate(['/shop'])
+      this.router.navigate(['/login'])
       .catch(err => alert('error' + err.message));
     });
   };
