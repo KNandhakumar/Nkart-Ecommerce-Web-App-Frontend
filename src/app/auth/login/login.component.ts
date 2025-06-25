@@ -14,7 +14,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 export class LoginComponent {
 
   constructor(private auth:Auth, private router:Router){}
-
+  errorMessage = '';
   email = '';
   password = '';
 
@@ -23,6 +23,20 @@ export class LoginComponent {
     .then(() => {
       alert('Login successful!');
       this.router.navigate(['/shop']); // redirect to shop page
-    }).catch(err => alert('something went wrong' + " " + err.message));
+    })
+    .catch(err => {
+      if(err.code === 'auth/user-not-found'){
+        alert('No user found with this email');
+      }
+      else if(err.code === 'auth/wrong-password'){
+        alert('Incorrect password');
+      }
+      else if(err.code === 'auth/invalid-email'){
+        this.errorMessage = 'No user found with this email';
+      }
+      else {
+        alert('Something went wrong');
+      }
+    });
   };
 }
